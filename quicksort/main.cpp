@@ -97,8 +97,89 @@ void quicksort(void *start, long long int number, int size, int (*cmp) (void*,vo
 int main()
 {
     FILE *inputFile,*outputFile;
-    int i;
+    int i,count,num;
+    char line[N],option[LEN],input[N];
+    char choice[][LEN]={"number","pair","char char","char num","no"};
+    inputFile=fopen("/Users/joycechin/Desktop/EX5/quicksort/sampleInputFile.in","r");
+    assert(inputFile!=NULL);
+    outputFile=fopen("/Users/joycechin/Desktop/EX5/quicksort/outputFile","w");
+    assert(outputFile!=NULL);
     while(1){
+        fgets(line,N,inputFile);
+        strncpy(option,line,strlen(line)-1);
+        printf("option=%s\n",option);
+        fscanf(inputFile,"%d",&num);
+        printf("%d\n",num);
+        if(strncmp(option,choice[4],2)==0){
+            break;
+        }
+        fgets(input,N,inputFile);
+        printf("%s",input);
+        char *token;
+        //sort number情況
+        int sequence[NUM];  //number序列
+        if(strncmp(option,choice[0],6)==0){
+            count=0;
+            token = strtok(input, " \0");
+            while (token != NULL){
+                sequence[count] = atoi(token);
+                count++;
+                token = strtok(NULL, " \0");
+            }
+            //for(i=0;i<count;i++) printf("%d ",sequence[i]);
+            //printf("\n");
+            quicksort(sequence,count,sizeof(int),numcmp);
+            fprintf(outputFile,"This is a number sequence\n");
+            for(i=0;i<count;i++) fprintf(outputFile,"%d ",sequence[i]);
+            fprintf(outputFile,"\n\n");
+        }
+        //sort pair情況
+        PAIR pair[NUM];  //struct (num,num)
+        if(strncmp(option,choice[1],4)==0){
+            count=0;
+            token = strtok(input, " \0"); //告訴strtok()在哪些地方切開
+            while (token != NULL){
+                sscanf(token,"(%d,%d)",&pair[count].num1,&pair[count].num2);
+                count++;
+                token = strtok(NULL, " \0");
+            }
+            //for(i=0;i<count;i++) printf("(%d %d) ",pair[i].num1,pair[i].num2);
+            quicksort(pair, count, sizeof(PAIR), paircmp);
+            fprintf(outputFile,"This is a number pair sequence\n");
+            for(i=0;i<count;i++) fprintf(outputFile,"(%d,%d) ",pair[i].num1,pair[i].num2);
+            fprintf(outputFile,"\n\n");
+        }
+        //sort char char pair
+        CHAR character[NUM];  //struct (char,char)
+        if(strncmp(option,choice[2],9)==0){
+            count=0;
+            token = strtok(input, " \0");
+            while (token != NULL){
+                sscanf(token,"(%c,%c)",&character[count].char1,&character[count].char2);
+                count++;
+                token = strtok(NULL, " \0");
+            }
+            //for(i=0;i<count;i++) printf("(%c,%c) ",character[i].char1,character[i].char2);
+            quicksort(character, count, sizeof(CHAR), charcmp);
+            for(i=0;i<count;i++)
+                fprintf(outputFile,"(%c,%c) ",character[i].char1,character[i].char2);
+        }
+        //sort char num情況
+        MIX mix[NUM];
+        if(strncmp(option,choice[3],8)==0){
+            count=0;
+            token = strtok(input, " \0");
+            while (token != NULL){
+                sscanf(token,"(%c,%d)",&mix[count].str,&mix[count].num);
+                count++;
+                token = strtok(NULL, " \0");
+            }
+            //for(i=0;i<count;i++) printf("(%c,%d) ",mix[i].str,mix[i].num);
+            quicksort(mix, count, sizeof(MIX), mixcmp);
+            for(i=0;i<count;i++) fprintf(outputFile,"(%c,%d) ",mix[i].str,mix[i].num);
+        }
+    }
+   /* while(1){
         //開始將輸入寫入inputFile中
         inputFile=fopen("/Users/joycechin/Desktop/EX5/quicksort/inputFile","w");
         assert(inputFile!=NULL);
@@ -119,7 +200,7 @@ int main()
         //line[]是我從inputFile中讀出來的
         //option[]是存我的input type字串
         //input[]是要sorting的序列
-        char line[N],option[LEN],input[N];
+        char line[N],input[N];
         i=0;
         while(fgets(line,sizeof(line),inputFile)){
             if(i==0) strncpy(option,line,strlen(line)-1);
@@ -205,6 +286,9 @@ int main()
             for(i=0;i<count;i++) fprintf(outputFile,"(%c,%d) ",mix[i].str,mix[i].num);
             fclose(outputFile);
         }
-    }
+        printf("please check inputFile and outFile,and press 0 after it\n");
+        char enter[10];
+        fgets(enter,10,stdin);
+    }*/
     return 0;
 }

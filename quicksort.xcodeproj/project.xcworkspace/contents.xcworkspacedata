@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:quicksort.xcodeproj">
+      location = "group:../sampleInputFile.in">
+   </FileRef>
+   <FileRef
+      location = "self:">
    </FileRef>
 </Workspace>
