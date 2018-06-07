@@ -27,6 +27,7 @@
 		610C548720C262CA0022AFE3 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		610C549020C2AD200022AFE3 /* inputFile */ = {isa = PBXFileReference; lastKnownFileType = text; path = inputFile; sourceTree = "<group>"; };
 		610C549120C2C2890022AFE3 /* outputFile */ = {isa = PBXFileReference; lastKnownFileType = text; path = outputFile; sourceTree = "<group>"; };
+		61E7BA8220C94A03003612AF /* sampleInputFile.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sampleInputFile.in; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				610C548720C262CA0022AFE3 /* main.cpp */,
+				61E7BA8220C94A03003612AF /* sampleInputFile.in */,
 			);
 			path = quicksort;
 			sourceTree = "<group>";
