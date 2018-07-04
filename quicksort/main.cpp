@@ -6,26 +6,7 @@
 //  Copyright © 2018年 Joyce Chin. All rights reserved.
 //
 
-/*
- number
- 6807 5249 73 3658 8930 1272 7544 878 7923 7709
- number
- 6623 8694 7249 4534 1636 4136 8718 1572 3252 908 1382 4767 -165 5832 7955 7101 7017 7392 8683 8543 4049 6323 9238 8669 6413 667 849 1398 9597 7809 -211 5440 81 1296 5053 7790 857 7393 8827 1528 5630 5160 1854 669 6407 7231 8953 239 4841 6108
- pair
- (7,49) (73,58) (30,72) (44,78) (23,9) (40,65) (92,42) (87,3) (27,29) (40,12)
- pair
- (807,5176) (658,8658) (544,-45) (709,4275) (492,2055) (503,1598) (840,2309) (169,7552) (560,834) (278,1481) (97,7314) (267,3177) (979,8570) (821,1295) (393,8851) (745,5137) (194,6356) (153,5764) (668,1366) (196,8627) (722,4117) (24,6948) (977,7180) (933,-683) (635,7148) (814,8527) (425,1554) (94,5128) (517,4090) (404,9153) (188,618) (882,6186) (716,-101) (144,604) (871,5691) (358,2780) (294,7295) (231,9570) (635,6156) (399,7556) (260,2963) (8,5427) (113,4524) (962,7577) (82,9085) (821,4983) (671,9311) (831,4681) (616,9150) (679,7329)
- char char
- (r,K) (q,k) (q,r) (s,z) (z,g) (V,q) (d,H) (q,c) (d,X) (O,k) (i,d) (H,i) (h,S) (v,d) (b,U) (l,W) (O,x) (i,f) (c,b) (F,B) (Q,O) (T,i) (e,T) (J,g) (Q,B) (q,k) (q,Q) (F,Y) (Y,C) (M,b)
- char num
- (r,58) (Q,78) (F,65) (q,3) (R,12) (r,57) (z,78) (f,26) (U,33) (d,21) (q,36) (R,91) (d,53) (E,90) (Q,3) (i,24) (p,8) (S,81) (h,14) (y,69) (a,1) (b,4) (D,23) (R,66) (O,44) (r,28) (e,97) (c,31) (v,98) (K,12)
- char num
- (r,862) (f,75) (V,831) (z,842) (f,445) (F,756) (D,141) (n,876) (e,665) (G,383) (I,854) (Y,66) (b,361) (L,557) (M,850) (f,896) (v,51) (q,-79) (T,879) (E,642) (n,526) (B,12) (h,882) (W,78) (Y,329) (W,869) (U,414) (k,894) (b,157) (W,-29) (r,659) (J,779) (x,557) (y,787) (b,852) (m,295) (S,173) (A,154) (W,292) (e,654) (s,431) (D,79) (p,232) (Q,379) (Y,489) (j,602) (V,537) (O,246) (Y,455) (G,898)
- no
 
- */
-
-#include <iostream>
 #include <cstdio>
 #include <cassert>
 #include <cstring>
@@ -83,7 +64,7 @@ void swap(char *point1,char *point2,size_t size){
 }
 
 //做quicksort的function
-// *start:sequence起始位置, *number:整個sequence的個數, *size:船上來的型態單個的size
+// *start:sequence起始位置, *number:整個sequence的個數, *size:傳上來的型態單個的size
 //(*cmp): 不同型態搭配的compare function
 void quicksort(void *start, long long int number, int size, int (*cmp) (void*,void*)){
     //partition到個數剩1的時候結束
@@ -104,7 +85,7 @@ void quicksort(void *start, long long int number, int size, int (*cmp) (void*,vo
         }
     }
     swap(pivot,ptr,size);
-    //splitPoint:pivot前一個元素
+    //splitPoint:從base到現在pivot正確位置的前一個元素的元素個數
     //因為pivot已經確定，所以就分別繼續quicksort pivot前和pivot後的元素
     long long int splitPoint=(ptr-base)/size;
     quicksort(base,splitPoint,size,cmp);
@@ -116,12 +97,12 @@ void quicksort(void *start, long long int number, int size, int (*cmp) (void*,vo
 int main()
 {
     FILE *inputFile,*outputFile;
-    int i,count,num;
+    int i,count;
     char line[N],option[LEN],input[N];
     char choice[][LEN]={"number","pair","char char","char num","no"};
     inputFile=fopen("/Users/joycechin/Desktop/EX5/quicksort/sampleInputFile.in","r");
     assert(inputFile!=NULL);
-    outputFile=fopen("/Users/joycechin/Desktop/EX5/quicksort/outputFile","w");
+    outputFile=fopen("/Users/joycechin/Desktop/EX5/quicksort/outputFile.out","w");
     assert(outputFile!=NULL);
     while(1){
         fgets(line,N,inputFile);

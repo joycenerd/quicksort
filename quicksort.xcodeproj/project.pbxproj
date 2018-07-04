@@ -25,8 +25,10 @@
 /* Begin PBXFileReference section */
 		610C548420C262CA0022AFE3 /* quicksort */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = quicksort; sourceTree = BUILT_PRODUCTS_DIR; };
 		610C548720C262CA0022AFE3 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		610C549120C2C2890022AFE3 /* outputFile */ = {isa = PBXFileReference; lastKnownFileType = text; path = outputFile; sourceTree = "<group>"; };
+		615F8D6B20CCFA8D00DF4854 /* outputFile.out */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = outputFile.out; sourceTree = "<group>"; };
+		61DC14AB20EADC1E001414BC /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		61E7BA8220C94A03003612AF /* sampleInputFile.in */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sampleInputFile.in; sourceTree = SOURCE_ROOT; };
+		61FD132B20ECEBCD002E4C2E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,7 +45,9 @@
 		610C547B20C262CA0022AFE3 = {
 			isa = PBXGroup;
 			children = (
-				610C549120C2C2890022AFE3 /* outputFile */,
+				61FD132B20ECEBCD002E4C2E /* README.md */,
+				615F8D6B20CCFA8D00DF4854 /* outputFile.out */,
+				61E7BA8220C94A03003612AF /* sampleInputFile.in */,
 				610C548620C262CA0022AFE3 /* quicksort */,
 				610C548520C262CA0022AFE3 /* Products */,
 			);
@@ -61,7 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				610C548720C262CA0022AFE3 /* main.cpp */,
-				61E7BA8220C94A03003612AF /* sampleInputFile.in */,
+				61DC14AB20EADC1E001414BC /* README.md */,
 			);
 			path = quicksort;
 			sourceTree = "<group>";
